@@ -14,6 +14,8 @@
 
 [**تصفح دليل الأدوات الشامل مباشرة**](https://gaith-allan.github.io/g-toolkit/)
 
+**الرابط المباشر للموقع:** `https://gaith-allan.github.io/g-toolkit/`
+
 ---
 
 ## هيكلية الدليل
