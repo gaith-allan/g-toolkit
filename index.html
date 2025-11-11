@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل أدوات غيث الشامل</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --primary-color: #1e1e1e;
+            --secondary-color: #2a2a2a;
+            --text-color: #e0e0e0;
+            --accent-color: #00aaff;
+            --border-color: #444;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 20px;
+        }
+        header h1 {
+            color: var(--accent-color);
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .nav-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .nav-btn:hover, .nav-btn.active {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+        .category {
+            display: none;
+            padding-top: 20px;
+        }
+        .category.active {
+            display: block;
+        }
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .tool-card {
+            background-color: var(--primary-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 170, 255, 0.1);
+        }
+        .tool-card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+        .tool-card p {
+            flex-grow: 1;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        .tool-card ul {
+            padding-right: 20px;
+            flex-grow: 1;
+            list-style-type: disc;
+            font-size: 0.85em;
+        }
+        .tool-card .btn-link {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: auto;
+            transition: background-color 0.3s;
+        }
+        .tool-card .btn-link:hover {
+            background-color: #33bbff;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const categories = document.querySelectorAll('.category');
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetCategory = button.getAttribute('data-category');
+
+                    // Remove active class from all buttons and categories
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    categories.forEach(cat => cat.classList.remove('active'));
+
+                    // Add active class to the clicked button and target category
+                    button.classList.add('active');
+                    document.getElementById(targetCategory).classList.add('active');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>دليل أدوات غيث الشامل</h1>
+            <p>مجموعة منتقاة من أفضل الأدوات في مجالاتك الستة، مع التركيز على الأدوات الذكية والبدائل القوية.</p>
+        </header>
+
+        <nav>
+            <button class="nav-btn active" data-category="programming">البرمجة</button>
+            <button class="nav-btn" data-category="cybersecurity">الأمن السيبراني</button>
+            <button class="nav-btn" data-category="gamedev">تطوير الألعاب</button>
+            <button class="nav-btn" data-category="ai">الذكاء الاصطناعي</button>
+            <button class="nav-btn" data-category="hardware">الهاردوير</button>
+            <button class="nav-btn" data-category="other">أدوات أخرى</button>
+        </nav>
+
+        <!-- قسم البرمجة -->
+        <div id="programming" class="category active">
+            <h2>البرمجة (Programming)</h2>
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h3>Cursor (AI-First IDE)</h3>
+                    <p>محرر أكواد مبني على VS Code مع ذكاء اصطناعي مدمج بعمق للمساعدة في كتابة وتصحيح الأكواد.</p>
+                    <ul>
+                        <li>إنشاء كود من الأوامر النصية (Prompting).</li>
+                        <li>محادثة مع الكود (Chat with your code).</li>
+                        <li>تصحيح الأخطاء وتعديل الملفات تلقائياً.</li>
+                    </ul>
+                    <a href="https://cursor.sh/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>JetBrains IDEs</h3>
+                    <p>مجموعة بيئات التطوير المتكاملة (IDEs) المتخصصة (مثل PyCharm, IntelliJ, WebStorm).</p>
+                    <ul>
+                        <li>تحليل كود متقدم وإعادة هيكلة ذكية.</li>
+                        <li>دعم عميق لإطارات العمل واللغات.</li>
+                        <li>أدوات اختبار وتصحيح أخطاء متكاملة.</li>
+                    </ul>
+                    <a href="https://www.jetbrains.com/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Warp Terminal</h3>
+                    <p>طرفية حديثة (Terminal) مصممة للمطورين، تستخدم الذكاء الاصطناعي والإكمال التلقائي.</p>
+                    <ul>
+                        <li>إكمال تلقائي ذكي للأوامر.</li>
+                        <li>مشاركة الأوامر مع الزملاء.</li>
+                        <li>واجهة مستخدم حديثة ومبنية على الكتل.</li>
+                    </ul>
+                    <a href="https://www.warp.dev/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Tabnine</h3>
+                    <p>مساعد إكمال كود يعمل بالذكاء الاصطناعي، يعمل داخل محرر الأكواد الخاص بك.</p>
+                    <ul>
+                        <li>إكمال كود سياقي على مستوى السطر والكتلة.</li>
+                        <li>يدعم أكثر من 30 لغة برمجة.</li>
+                        <li>يعمل محلياً (Offline) للحفاظ على الخصوصية.</li>
+                    </ul>
+                    <a href="https://www.tabnine.com/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Postman</h3>
+                    <p>أداة لتصميم، بناء، واختبار واجهات برمجة التطبيقات (APIs) بكفاءة عالية.</p>
+                    <ul>
+                        <li>إرسال طلبات HTTP/S واختبارها.</li>
+                        <li>توثيق APIs بشكل احترافي.</li>
+                        <li>إنشاء مجموعات اختبار آلية.</li>
+                    </ul>
+                    <a href="https://www.postman.com/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>DBeaver</h3>
+                    <p>عميل قاعدة بيانات عالمي يدعم جميع قواعد البيانات الرئيسية (SQL, NoSQL).</p>
+                    <ul>
+                        <li>واجهة مستخدم رسومية لإدارة البيانات.</li>
+                        <li>محرر SQL قوي مع إكمال تلقائي.</li>
+                        <li>نقل البيانات وتصديرها بسهولة.</li>
+                    </ul>
+                    <a href="https://dbeaver.io/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم الأمن السيبراني -->
+        <div id="cybersecurity" class="category">
+            <h2>الأمن السيبراني (Cybersecurity)</h2>
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h3>Burp Suite Professional</h3>
+                    <p>منصة متكاملة لاختبار أمان تطبيقات الويب. الأداة القياسية في المجال.</p>
+                    <ul>
+                        <li>اعتراض وتعديل طلبات HTTP/S.</li>
+                        <li>فحص الثغرات الآلي (Scanner).</li>
+                        <li>أدوات متقدمة مثل Intruder و Repeater.</li>
+                    </ul>
+                    <a href="https://portswigger.net/burp" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Metasploit Framework</h3>
+                    <p>أداة اختبار اختراق مفتوحة المصدر، تستخدم لتطوير وتنفيذ الأكواد الاستغلالية (Exploits).</p>
+                    <ul>
+                        <li>قاعدة بيانات ضخمة للأكواد الاستغلالية.</li>
+                        <li>أدوات مساعدة (Auxiliary) لجمع المعلومات.</li>
+                        <li>إدارة جلسات الاختراق (Sessions).</li>
+                    </ul>
+                    <a href="https://www.metasploit.com/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Wireshark</h3>
+                    <p>محلل بروتوكولات شبكة مجاني ومفتوح المصدر، يستخدم لالتقاط وفحص حركة المرور.</p>
+                    <ul>
+                        <li>تحليل عميق لمئات البروتوكولات.</li>
+                        <li>مرشحات عرض قوية (Display Filters).</li>
+                        <li>مفيد جداً في استكشاف الأخطاء وتحليل الأدلة الجنائية.</li>
+                    </ul>
+                    <a href="https://www.wireshark.org/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Nmap (Network Mapper)</h3>
+                    <p>أداة مجانية ومفتوحة المصدر لاكتشاف الشبكات والتدقيق الأمني.</p>
+                    <ul>
+                        <li>مسح المنافذ (Port Scanning).</li>
+                        <li>اكتشاف الخدمات وإصدارات نظام التشغيل.</li>
+                        <li>لغة برمجة نصية قوية (NSE).</li>
+                    </ul>
+                    <a href="https://nmap.org/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Maltego</h3>
+                    <p>أداة لجمع المعلومات الاستخباراتية مفتوحة المصدر (OSINT) وتصور العلاقات بين البيانات.</p>
+                    <ul>
+                        <li>تجميع البيانات من مصادر متعددة.</li>
+                        <li>تصور الرسوم البيانية للعلاقات.</li>
+                        <li>مفيد في التحقيقات الجنائية الرقمية.</li>
+                    </ul>
+                    <a href="https://www.maltego.com/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Hashcat</h3>
+                    <p>أسرع أداة لاستعادة كلمات المرور في العالم، تدعم العديد من خوارزميات التجزئة.</p>
+                    <ul>
+                        <li>استخدام قوة معالجات الرسوميات (GPU).</li>
+                        <li>دعم واسع لأنواع التجزئة (Hashes).</li>
+                        <li>أنماط هجوم متعددة (Dictionary, Brute-force).</li>
+                    </ul>
+                    <a href="https://hashcat.net/hashcat/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم تطوير الألعاب -->
+        <div id="gamedev" class="category">
+            <h2>تطوير الألعاب (Game Development)</h2>
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h3>Unity</h3>
+                    <p>محرك ألعاب رائد، يستخدم لتطوير ألعاب ثنائية وثلاثية الأبعاد لمنصات متعددة.</p>
+                    <ul>
+                        <li>دعم واسع للمنصات (PC, Mobile, Console).</li>
+                        <li>مجتمع ضخم وموارد تعليمية وفيرة.</li>
+                        <li>متجر أصول (Asset Store) غني.</li>
+                    </ul>
+                    <a href="https://unity.com/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Unreal Engine 5</h3>
+                    <p>محرك ألعاب قوي ومجاني، معروف بجودة رسوماته الواقعية (Photorealistic Graphics).</p>
+                    <ul>
+                        <li>تقنيات Nanite و Lumen للرسومات المتقدمة.</li>
+                        <li>نظام البرمجة المرئية (Blueprints).</li>
+                        <li>مناسب للألعاب عالية الميزانية والمحاكاة.</li>
+                    </ul>
+                    <a href="https://www.unrealengine.com/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Blender</h3>
+                    <p>برنامج مجاني ومفتوح المصدر لإنشاء نماذج ثلاثية الأبعاد، الرسوم المتحركة، والمحاكاة.</p>
+                    <ul>
+                        <li>نمذجة، نحت، ورسم نسيج (Texturing).</li>
+                        <li>محرك عرض قوي (Cycles و Eevee).</li>
+                        <li>مستخدم على نطاق واسع في صناعة الألعاب والسينما.</li>
+                    </ul>
+                    <a href="https://www.blender.org/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Substance Painter</h3>
+                    <p>الأداة القياسية في الصناعة لرسم وتطبيق الأنسجة (Textures) على النماذج ثلاثية الأبعاد.</p>
+                    <ul>
+                        <li>رسم مباشر على النماذج ثلاثية الأبعاد.</li>
+                        <li>نظام طبقات متقدم (Layer System).</li>
+                        <li>تصدير سهل لمحركات الألعاب.</li>
+                    </ul>
+                    <a href="https://www.adobe.com/products/substance3d-painter.html" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>FMOD / Wwise</h3>
+                    <p>أدوات متخصصة لإدارة وتطبيق الصوت التفاعلي في الألعاب (Audio Middleware).</p>
+                    <ul>
+                        <li>تحكم دقيق في المؤثرات الصوتية والموسيقى.</li>
+                        <li>تكامل سلس مع Unity و Unreal Engine.</li>
+                        <li>ضروري لإنشاء تجربة صوتية غامرة.</li>
+                    </ul>
+                    <a href="https://www.fmod.com/" target="_blank" class="btn-link">زيارة الموقع (FMOD)</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Godot Engine</h3>
+                    <p>محرك ألعاب خفيف الوزن ومفتوح المصدر، ممتاز للمشاريع الصغيرة والألعاب ثنائية الأبعاد.</p>
+                    <ul>
+                        <li>لغة برمجة خاصة (GDScript) سهلة التعلم.</li>
+                        <li>حجم صغير وسرعة في التطوير.</li>
+                        <li>مجاني بالكامل بدون رسوم ترخيص.</li>
+                    </ul>
+                    <a href="https://godotengine.org/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم الذكاء الاصطناعي -->
+        <div id="ai" class="category">
+            <h2>الذكاء الاصطناعي (AI)</h2>
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h3>Manus (هذا النظام)</h3>
+                    <p>منصة ذكاء اصطناعي متعددة المهام، قادرة على التخطيط، استخدام الأدوات، وتنفيذ مهام معقدة.</p>
+                    <ul>
+                        <li>تخطيط المهام المعقدة (Task Planning).</li>
+                        <li>استخدام الأدوات الخارجية (Tool Use).</li>
+                        <li>الوصول إلى الإنترنت والبيانات الحديثة.</li>
+                    </ul>
+                    <a href="https://help.manus.im" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Claude 3 (Anthropic)</h3>
+                    <p>نموذج لغوي كبير (LLM) منافس لـ GPT، معروف بقدراته الفائقة في التحليل والكتابة الطويلة.</p>
+                    <ul>
+                        <li>معالجة مدخلات نصية ضخمة (Context Window).</li>
+                        <li>أداء عالٍ في المهام المعقدة.</li>
+                        <li>التركيز على الأمان والأخلاقيات (Constitutional AI).</li>
+                    </ul>
+                    <a href="https://www.anthropic.com/product" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Perplexity AI</h3>
+                    <p>محرك بحث يعمل بالذكاء الاصطناعي، يركز على تقديم إجابات دقيقة وموثقة بمصادر.</p>
+                    <ul>
+                        <li>توليد إجابات مع روابط للمصادر.</li>
+                        <li>وضع "Copilot" للبحث الموجه.</li>
+                        <li>ممتاز للبحث الأكاديمي والتقني.</li>
+                    </ul>
+                    <a href="https://www.perplexity.ai/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Hugging Face</h3>
+                    <p>منصة ومجتمع لمشاركة نماذج الذكاء الاصطناعي، مجموعات البيانات، والتطبيقات التجريبية.</p>
+                    <ul>
+                        <li>مستودع ضخم للنماذج مفتوحة المصدر.</li>
+                        <li>أدوات سهلة الاستخدام لتجربة النماذج.</li>
+                        <li>أساسي للباحثين ومطوري الذكاء الاصطناعي.</li>
+                    </ul>
+                    <a href="https://huggingface.co/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>TensorFlow / PyTorch</h3>
+                    <p>أطر عمل (Frameworks) رائدة لتطوير ونشر نماذج التعلم الآلي والتعلم العميق.</p>
+                    <ul>
+                        <li>أدوات قوية لبناء الشبكات العصبية.</li>
+                        <li>دعم واسع من المجتمع والشركات الكبرى.</li>
+                        <li>أساسي للعمل في مجال الذكاء الاصطناعي.</li>
+                    </ul>
+                    <a href="https://www.tensorflow.org/" target="_blank" class="btn-link">زيارة الموقع (TensorFlow)</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Midjourney / DALL-E</h3>
+                    <p>نماذج ذكاء اصطناعي لتوليد الصور من النصوص (Text-to-Image).</p>
+                    <ul>
+                        <li>إنشاء صور فنية وواقعية بجودة عالية.</li>
+                        <li>مفيد جداً لمطوري الألعاب والمصممين.</li>
+                        <li>يتطلب صياغة برومبت دقيقة للحصول على أفضل النتائج.</li>
+                    </ul>
+                    <a href="https://www.midjourney.com/" target="_blank" class="btn-link">زيارة الموقع (Midjourney)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم الهاردوير -->
+        <div id="hardware" class="category">
+            <h2>الهاردوير (Hardware)</h2>
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h3>CPU-Z</h3>
+                    <p>أداة مجانية تعرض معلومات مفصلة عن المعالج، اللوحة الأم، الذاكرة، والرسوميات.</p>
+                    <ul>
+                        <li>معلومات دقيقة عن الترددات والجهد.</li>
+                        <li>مفيد جداً للمقارنات والتحقق من المواصفات.</li>
+                        <li>لا يتطلب تثبيت (Portable).</li>
+                    </ul>
+                    <a href="https://www.cpuid.com/softwares/cpu-z.html" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>HWMonitor</h3>
+                    <p>أداة لمراقبة حساسات النظام (درجات الحرارة، الفولتية، سرعة المراوح) في الوقت الفعلي.</p>
+                    <ul>
+                        <li>تتبع درجات حرارة المعالج والرسوميات.</li>
+                        <li>مراقبة استهلاك الطاقة.</li>
+                        <li>مفيد لاكتشاف مشاكل ارتفاع الحرارة.</li>
+                    </ul>
+                    <a href="https://www.cpuid.com/softwares/hwmonitor.html" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>MSI Afterburner</h3>
+                    <p>أداة كسر السرعة (Overclocking) ومراقبة أداء بطاقات الرسوميات الأكثر شعبية.</p>
+                    <ul>
+                        <li>التحكم في ترددات وذاكرة الرسوميات.</li>
+                        <li>مراقبة الأداء داخل الألعاب (OSD).</li>
+                        <li>التحكم في سرعة المراوح.</li>
+                    </ul>
+                    <a href="https://www.msi.com/Landing/afterburner/graphics-cards" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>CrystalDiskInfo</h3>
+                    <p>أداة لمراقبة حالة الأقراص الصلبة (HDD/SSD) وقراءة بيانات S.M.A.R.T.</p>
+                    <ul>
+                        <li>تنبيهات حول تدهور حالة القرص.</li>
+                        <li>عرض درجة حرارة القرص.</li>
+                        <li>مفيد جداً للحفاظ على البيانات.</li>
+                    </ul>
+                    <a href="https://crystalmark.info/en/software/crystaldiskinfo/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Prime95</h3>
+                    <p>برنامج اختبار إجهاد (Stress Test) للمعالج والذاكرة، يستخدم لضمان استقرار النظام بعد كسر السرعة.</p>
+                    <ul>
+                        <li>اختبار استقرار المعالج تحت الحمل.</li>
+                        <li>كشف الأخطاء في الذاكرة.</li>
+                        <li>ضروري لمتخصصي الهاردوير.</li>
+                    </ul>
+                    <a href="https://www.mersenne.org/download/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>AIDA64 Extreme</h3>
+                    <p>أداة تشخيص شاملة للنظام، توفر معلومات مفصلة واختبارات إجهاد متقدمة.</p>
+                    <ul>
+                        <li>تقرير شامل عن جميع مكونات النظام.</li>
+                        <li>اختبارات إجهاد للمعالج، الذاكرة، والقرص.</li>
+                        <li>مراقبة متقدمة للحساسات.</li>
+                    </ul>
+                    <a href="https://www.aida64.com/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم أدوات أخرى مفيدة -->
+        <div id="other" class="category">
+            <h2>أدوات أخرى مفيدة (Other Useful Tools)</h2>
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h3>Everything</h3>
+                    <p>أداة بحث فورية عن الملفات والمجلدات على نظام ويندوز، أسرع بكثير من البحث المدمج.</p>
+                    <ul>
+                        <li>نتائج بحث فورية أثناء الكتابة.</li>
+                        <li>استخدام منخفض لموارد النظام.</li>
+                        <li>دعم للتعبيرات العادية (Regex).</li>
+                    </ul>
+                    <a href="https://www.voidtools.com/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>ShareX</h3>
+                    <p>أداة مجانية ومفتوحة المصدر لالتقاط الشاشة، التسجيل، ورفع الملفات.</p>
+                    <ul>
+                        <li>التقاط الشاشة بأشكال متعددة.</li>
+                        <li>تحرير الصور وإضافة الشروحات.</li>
+                        <li>رفع الصور والملفات إلى خدمات متعددة.</li>
+                    </ul>
+                    <a href="https://getsharex.com/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Lutris</h3>
+                    <p>منصة ألعاب مفتوحة المصدر لنظام Linux، تسهل تثبيت وتشغيل الألعاب من مصادر مختلفة.</p>
+                    <ul>
+                        <li>دعم لـ Steam, GOG, Epic Games.</li>
+                        <li>إدارة إعدادات Wine و Emulators.</li>
+                        <li>مفيد جداً لمستخدمي Linux.</li>
+                    </ul>
+                    <a href="https://lutris.net/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>Ditto</h3>
+                    <p>مدير حافظة (Clipboard Manager) متقدم، يحفظ سجل بجميع النصوص والصور التي نسختها.</p>
+                    <ul>
+                        <li>حفظ سجل غير محدود للنسخ.</li>
+                        <li>البحث واللصق من السجل.</li>
+                        <li>مفيد جداً للمبرمجين وكتاب المحتوى.</li>
+                    </ul>
+                    <a href="https://ditto-cp.sourceforge.io/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>OBS Studio</h3>
+                    <p>برنامج مجاني ومفتوح المصدر لتسجيل الفيديو والبث المباشر (Streaming).</p>
+                    <ul>
+                        <li>دعم لمصادر متعددة (شاشة، كاميرا، ألعاب).</li>
+                        <li>إعدادات متقدمة للبث.</li>
+                        <li>الأداة القياسية في مجال البث.</li>
+                    </ul>
+                    <a href="https://obsproject.com/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+                <div class="tool-card">
+                    <h3>PowerToys (Microsoft)</h3>
+                    <p>مجموعة من الأدوات المساعدة من مايكروسوفت لإضافة وظائف متقدمة لنظام ويندوز.</p>
+                    <ul>
+                        <li>إعادة تعيين مفاتيح الكيبورد (Keyboard Manager).</li>
+                        <li>أداة تحديد الألوان (Color Picker).</li>
+                        <li>إعادة تسمية الملفات دفعة واحدة (PowerRename).</li>
+                    </ul>
+                    <a href="https://learn.microsoft.com/en-us/windows/powertoys/" target="_blank" class="btn-link">زيارة الموقع</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>تم إنشاء هذا الدليل بواسطة Manus بناءً على طلب غيث. جميع الروابط تؤدي إلى المواقع الرسمية للأدوات.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
