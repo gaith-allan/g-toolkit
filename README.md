@@ -1,71 +1,16 @@
-# دليل أدوات غيث الشامل (Ghayth's Ultimate Toolkit)
+# React + Vite
 
-## نظرة عامة
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-هذا المستودع هو نتاج مشروع شخصي يهدف إلى تجميع وتنظيم قائمة شاملة بأفضل الأدوات والبرامج التي يحتاجها أي متخصص أو مطور في مجالات التكنولوجيا المختلفة. تم تصميم الدليل ليكون ملف HTML واحد، سهل التصفح، ومقسم إلى ستة أقسام رئيسية.
+Currently, two official plugins are available:
 
-**الهدف النهائي:** توفير **100 أداة** لكل قسم، ليصبح المجموع **600 أداة** موثقة بالكامل.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
----
+## React Compiler
 
-## الوصول إلى الدليل
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-يمكنك تصفح الدليل مباشرة عبر GitHub Pages:
+## Expanding the ESLint configuration
 
-[**تصفح دليل الأدوات الشامل مباشرة**](https://gaith-allan.github.io/g-toolkit/)
-
-**الرابط المباشر للموقع:** `https://gaith-allan.github.io/g-toolkit/`
-
----
-
-## هيكلية الدليل
-
-تم تقسيم الأدوات إلى ستة مجالات رئيسية، كل منها يمثل ملفاً افتراضياً في قرص G الخاص بك:
-
-1.  **البرمجة (Programming):** أدوات تطوير الويب، تطبيقات سطح المكتب، لغات البرمجة، والمكتبات الأساسية.
-2.  **الأمن السيبراني (Cybersecurity):** أدوات اختبار الاختراق، التحليل الجنائي، الدفاع، وجمع المعلومات (OSINT).
-3.  **تطوير الألعاب (Game Development):** محركات الألعاب، أدوات النمذجة ثلاثية الأبعاد، تصميم الصوت، وأدوات الرسوم المتحركة.
-4.  **الذكاء الاصطناعي (Artificial Intelligence):** نماذج اللغة الكبيرة (LLMs)، أطر عمل التعلم الآلي (TensorFlow/PyTorch)، وأدوات توليد المحتوى.
-5.  **الهاردوير (Hardware):** أدوات مراقبة النظام، اختبار الإجهاد، كسر السرعة، وتشخيص المكونات.
-6.  **أدوات أخرى مفيدة (Other Useful Tools):** تطبيقات الأتمتة، أدوات الإنتاجية، مديري الحافظة، وأدوات البحث السريع.
-
----
-
-## محتوى كل أداة
-
-كل أداة في الدليل تحتوي على التفاصيل التالية:
-
-*   **اسم الأداة:** الاسم الرسمي للأداة.
-*   **وصف مختصر:** شرح لدور الأداة وأهميتها.
-*   **المميزات الرئيسية:** قائمة نقطية بأبرز 3-5 مميزات للأداة.
-*   **رابط مباشر:** رابط URL يؤدي إلى الموقع الرسمي للأداة.
-
----
-
-## هيكلية المستودع التقنية
-
-تم بناء الدليل باستخدام تقنيات الويب الأساسية لضمان سهولة الوصول والتعديل:
-
-| الملف | الوصف |
-| :--- | :--- |
-| `index.html` | ملف HTML الرئيسي الذي يحتوي على هيكل الدليل وكافة بيانات الأدوات. |
-| `style.css` | ملف CSS الخارجي الذي يحتوي على كافة التنسيقات والتصميم الداكن (Dark Theme). |
-| `script.js` | ملف JavaScript الخارجي المسؤول عن التفاعل، مثل التبديل بين أقسام الأدوات. |
-| `README.md` | هذا الملف الذي يوضح تفاصيل المشروع. |
-
----
-
-## حالة المشروع الحالية
-
-**ملاحظة هامة:** الدليل حالياً في مرحلة التوسع. تم فصل ملفات CSS و JS بنجاح، والعمل جارٍ على توسيع قائمة الأدوات لتصل إلى 100 أداة لكل مجال (600 أداة إجمالاً) كما هو مطلوب.
-
----
-
-## المساهمة
-
-نرحب بأي اقتراحات أو تصحيحات أو إضافات لقائمة الأدوات. يمكنك المساهمة عن طريق:
-
-1.  **فتح مشكلة (Issue):** للإبلاغ عن خطأ أو اقتراح أداة جديدة.
-2.  **طلب سحب (Pull Request):** لإضافة أدوات جديدة مباشرة إلى ملف `index.html`.
-
-**شكراً لك يا غيث على إطلاق هذا المشروع الهام!**
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
